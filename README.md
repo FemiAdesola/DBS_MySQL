@@ -41,6 +41,10 @@ Example:
 - Reviews.ProductID → Products.ProductID
 - Reviews.CustomerID → Customers.CustomerID
 
+
+### Entity Relationship Diagrams (ERD)
+![ERD](/img/eCommerceApp.png)
+
 ## 📈 Sample Queries Included
 
 ### Retrieve all data from each table:
@@ -98,7 +102,7 @@ FROM (
 
 ## 👨‍💻 Authors
 - Femi Oyinloye
-- Camille Asongtia
+
 
 ## 📜 Notes
 - Images in tables (Categories, Products) are currently left as empty blobs (`''`) — placeholders for future updates.
