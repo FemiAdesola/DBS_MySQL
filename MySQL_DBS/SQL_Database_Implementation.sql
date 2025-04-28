@@ -44,8 +44,8 @@ CREATE TABLE Customers (
 
 -- Inserting new records for table Customers
 INSERT INTO Customers VALUES 
-    (1, 'Femi',	'Adesola',	'femi.adesola@example.com',	'+35844204018',	'Kilkallion 3 C23, Esppo',	'Finland'),
-    (2,	'Camille',	'Asongtia',	'Asongtia@example.com',	'+3584420409',	'kontulatie 4 A75, Helsinki',	'Finland'),
+    (1, 'Femi',	'Adesola', 'femi.adesola@example.com', '+35844204018',	'Kilkallion 3 C23, Esppo',	'Finland'),
+    (2,	'Cam', 'Ason', 'Ason.cam@example.com',	'+3584420409',	'kontulatie 4 A75, Helsinki',	'Finland'),
     (3, 'Jari', 'Laine', 'jari.laine@example.com', '+358501234567', 'Puistotie 9, Vantaa', 'Finland'),
     (4, 'Sari', 'Mäkinen', 'sari.makinen@example.com', '+358401987654', 'Rautatieasema 3, Tampere', 'Finland'),
     (5, 'Juha', 'Heikkinen', 'juha.heikkinen@example.com', '+358405432198', 'Satamakatu 15, Turku', 'Finland'),
