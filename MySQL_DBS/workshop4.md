@@ -1,3 +1,113 @@
+
+# SQL Implementation
+```sql
+/*
+This script creates tables for the "Small company" case database, and inserts test data in all tables
+*/
+-- ------------------------------------------------------------------
+-- Drop table in case it exist in the database
+DROP TABLE IF EXISTS DEPARTMENT;
+ 
+-- Table structure
+CREATE TABLE DEPARTMENT (
+  DepID int NOT NULL,
+  Name varchar(16) NOT NULL,
+  Code char(2) NOT NULL,
+  PRIMARY KEY (DepID)
+);
+
+-- Inserting new records for table
+INSERT INTO DEPARTMENT VALUES
+(1, 'IT', 'IT'),
+(2, 'Finance', 'FI'),
+(3, 'Production', 'PR'),
+(4, 'Sales', 'SA');
+-- -----------------------------------------------------------------------
+--
+-- Drop table in case it exist in the database
+DROP TABLE IF EXISTS PERSON; 
+
+-- Table structure
+CREATE TABLE PERSON (
+  PersonID char(4) NOT NULL,
+  Department int,
+  FName varchar(16) NOT NULL,
+  LName varchar(32) NOT NULL,
+  City varchar(16),
+  Salary int,
+  Tax decimal (3,1),
+  SDate date,
+  PRIMARY KEY (PersonID),
+  FOREIGN KEY (Department) REFERENCES DEPARTMENT(DepID)
+);
+
+-- Inserting new records for table
+INSERT INTO PERSON VALUES
+('2222',3,'Mikko','Nieminen','Turku',2900,24.2,'2015-03-01'),
+('2233',1,'Hannu','Virta','Turku',3100,32.3,'2005-10-10'),
+('2234',4,'Liisa','Lehtipuu','Kerava',3200,33.0,'2004-12-1'),
+('2333',3,'Katja','Kataja','Vantaa',2300,19.4,'2015-05-01'),
+('2345',NULL,'Keijo','Kuusi','Kerava',2580,24.0,'2010-08-12'),
+('3567',1,'Kari','Mänty','Helsinki',2650,22.3,'2007-09-15'),
+('3568',3,'Hannu','Haapanen','Helsinki',3400,35.1,'2003-05-10');
+-- -----------------------------------------------------------------------
+--
+-- Drop table in case it exist in the database
+DROP TABLE IF EXISTS PROJECT; 
+
+-- Table structure
+CREATE TABLE PROJECT (
+  ProjID varchar(4) NOT NULL,
+  Name varchar(32) NOT NULL,
+  Priority smallint,
+  Location varchar(32),
+  PRIMARY KEY (ProjID)
+);
+
+-- Inserting new records for table
+INSERT INTO PROJECT VALUES
+('P1', 'Electronic billing', 2, 'Turku'),
+('P2', 'Reporting upgrade', 1, 'Kerava'),
+('P3', 'Statistics report', NULL, NULL),
+('P4', 'Personnel training', 2, 'Turku'),
+('P5', 'Customer service', 3, 'Joensuu'),
+('P6', 'SAP implementation', 1, 'Helsinki');
+-- -----------------------------------------------------------------------
+--
+-- Drop table in case it exist in the database
+DROP TABLE IF EXISTS PROJECT_PERSON; 
+
+-- Table structure
+CREATE TABLE PROJECT_PERSON (
+  Project varchar(4) NOT NULL,
+  Person char(4) NOT NULL,
+  HoursActual int,
+  HoursPlanned int,
+  PRIMARY KEY (Project,Person),
+  FOREIGN KEY (Project) REFERENCES PROJECT(ProjID),
+  FOREIGN KEY (Person) REFERENCES PERSON(PersonID)   
+);
+
+-- Inserting new records for table
+INSERT INTO PROJECT_PERSON VALUES
+('P1', '2222', 300, 300),
+('P1', '2233', 150, 200),
+('P1', '2333', 200, 200),
+('P1', '2345', 100, 100),
+('P2', '2222', 0, 100),
+('P4', '2333', 150, NULL),
+('P4', '2345', 200, 250),
+('P4', '3567', 300, 200),
+('P5', '2233', 500, 600),
+('P5', '3567', 200, 200),
+('P5', '2222', 10, 200);
+-- -----------------------------------------------------------------------
+ 
+```
+
+# SQL Query
+## Question and Answers
+
 ## SELECT with: INNER JOIN, LEFT JOIN, RIGHT JOIN
 
 
