@@ -341,6 +341,7 @@ group by Department;
 SELECT Department, count(PersonID)
 FROM smallcompany.PERSON
 WHERE Salary > 3000 AND City <> 'Helsinki';
+group by Department;
 ```
 
 ```shell
